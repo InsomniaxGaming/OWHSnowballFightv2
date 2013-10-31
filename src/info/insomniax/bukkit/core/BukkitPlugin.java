@@ -32,7 +32,7 @@ public class BukkitPlugin extends JavaPlugin{
 	
 	public boolean wasProbable(int numerator, int denominator)
 	{
-		return rand.nextInt(denominator) <= numerator;
+		return rand.nextInt(denominator) < numerator;
 	}
 	
 	public boolean useLists()
