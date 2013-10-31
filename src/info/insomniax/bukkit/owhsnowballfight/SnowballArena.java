@@ -20,7 +20,7 @@ public class SnowballArena extends Arena{
 		myPlugin = instance;
 	}
 	
-	int damage = 20;
+	int rockDamage = 20;
 
     @ArenaEventHandler
     public void onEntityDamage(EntityDamageByEntityEvent event) {
@@ -36,12 +36,20 @@ public class SnowballArena extends Arena{
     	  //At this point, we can safely type cast these entities since we already checked to make sure they're players.
     	  Entity player = event.getEntity();
     	  Entity damager = event.getDamager();
+    	  
     	  ((Player)player).sendMessage("You were hit by a " + ChatColor.RED + "snow covered rock " + ChatColor.WHITE + "by " + ChatColor.GOLD + ((Player)damager).getName());
     	  ((Player)damager).sendMessage("You struck " + ChatColor.GOLD + ((Player)player).getName() + ChatColor.WHITE + " with a " + ChatColor.RED + " snow covered rock");  
 
-          event.setDamage(damage); // Increase snowball damage!
+          event.setDamage(rockDamage); // Increase snowball damage!
       }
       
+      if(myPlugin.useLists())
+      {
+    	  //Insom's code here
+      } else
+      {
+    	  //Shado's code here
+      }
     }
 
 }
