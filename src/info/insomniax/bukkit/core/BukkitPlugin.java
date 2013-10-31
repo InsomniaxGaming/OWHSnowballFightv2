@@ -17,7 +17,10 @@ public class BukkitPlugin extends JavaPlugin{
 	
 	//Wrapper class for all things bukkit!
 	
-	public void onEnable(){
+	public void onEnable()
+	{
+		
+		this.saveDefaultConfig();
 
 	    BattleArena.registerCompetition(
 	                      this, "OWHSnowballFightv2", "sb", SnowballArena.class);
@@ -28,11 +31,19 @@ public class BukkitPlugin extends JavaPlugin{
 		useLists = config.getBoolean("useLists",false);
 	}
 	
-	public void onDisable(){}
+	public void onDisable()
+	{
+		this.saveConfig();
+	}
 	
 	public boolean wasProbable(int numerator, int denominator)
 	{
 		return rand.nextInt(denominator) < numerator;
+	}
+	
+	public void consoleInfo(String message)
+	{
+		this.getLogger().info(message);
 	}
 	
 	public boolean useLists()
