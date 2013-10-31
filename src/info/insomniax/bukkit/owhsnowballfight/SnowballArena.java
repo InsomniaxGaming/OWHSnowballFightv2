@@ -11,6 +11,8 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import mc.alk.arena.objects.arenas.Arena;
 import mc.alk.arena.objects.events.ArenaEventHandler;
 
+import info.insomniax.bukkit.Frozen.FrozenList;
+
 public class SnowballArena extends Arena{
 	
 	BukkitPlugin myPlugin;
@@ -48,6 +50,10 @@ public class SnowballArena extends Arena{
     	  //Insom's code here
       } else
       {
+    	  if(myPlugin.wasProbable(1,32)){
+    		  Entity player = event.getEntity();
+    		  
+    	  }
     	  //Shado's code here
       }
     }
