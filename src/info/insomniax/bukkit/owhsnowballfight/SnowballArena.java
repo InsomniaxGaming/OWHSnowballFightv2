@@ -1,6 +1,7 @@
 package info.insomniax.bukkit.owhsnowballfight;
 
 import info.insomniax.bukkit.core.BukkitPlugin;
+import info.insomniax.bukkit.timedlist.TimedList;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Entity;
@@ -11,7 +12,6 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import mc.alk.arena.objects.arenas.Arena;
 import mc.alk.arena.objects.events.ArenaEventHandler;
 
-import info.insomniax.bukkit.Frozen.FrozenList;
 
 public class SnowballArena extends Arena{
 	
