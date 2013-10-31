@@ -7,12 +7,17 @@ import java.util.TimerTask;
 
 public class TimedList extends Timer{
 	
-	public static List<String> Frozen = new ArrayList<String>();
+	public static List<String> list = new ArrayList<String>();
 
-	public void isFrozen(String IceMansPreferredUseOfJava)
+	public void add(String player)
 	{
-		Frozen.add(IceMansPreferredUseOfJava); // Add player to list of players joined in last 10 seconds
-		this.schedule(new ListTask(IceMansPreferredUseOfJava),10000); // Schedule a task to remove the player from the list in 10 seconds
+		list.add(player); // Add player to list of players joined in last 10 seconds
+		this.schedule(new ListTask(player),10000); // Schedule a task to remove the player from the list in 10 seconds
+	}
+	
+	public boolean inList(String player)
+	{
+		return false; // Fix this to return correctly :) We will use "inList" instead of "isFrozen"
 	}
 	
 	class ListTask extends TimerTask{
@@ -27,7 +32,7 @@ public class TimedList extends Timer{
 		@Override
 		public void run()
 		{
-			Frozen.remove(name);
+			list.remove(name);
 		}	
 	}
 }
