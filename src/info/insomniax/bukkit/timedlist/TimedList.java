@@ -9,10 +9,10 @@ public class TimedList extends Timer{
 	
 	public static List<String> list = new ArrayList<String>();
 
-	public void add(String player)
+	public void add(String player, long time)
 	{
 		list.add(player); // Add player to list of players joined in last 10 seconds
-		this.schedule(new ListTask(player),10000); // Schedule a task to remove the player from the list in 10 seconds
+		this.schedule(new ListTask(player),time); // Schedule a task to remove the player from the list in 10 seconds
 	}
 	
 	public boolean inList(String player)
