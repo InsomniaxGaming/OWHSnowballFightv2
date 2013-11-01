@@ -16,6 +16,7 @@ import mc.alk.arena.objects.events.ArenaEventHandler;
 public class SnowballArena extends Arena{
 	
 	BukkitPlugin myPlugin;
+	TimedList frozen = new TimedList();
 	
 	public SnowballArena(BukkitPlugin instance)
 	{

@@ -7,7 +7,7 @@ import java.util.TimerTask;
 
 public class TimedList extends Timer{
 	
-	public static List<String> list = new ArrayList<String>();
+	private List<String> list = new ArrayList<String>();
 
 	public void add(String player, long time)
 	{
