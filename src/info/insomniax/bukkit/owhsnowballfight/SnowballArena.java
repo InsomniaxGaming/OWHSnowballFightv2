@@ -72,7 +72,10 @@ public class SnowballArena extends Arena{
     // Method name does not matter. What matters is the @ArenaEventHandler annotation and the passed in PlayerMoveEvent
     public void onMove(PlayerMoveEvent event)
     {
-    	//Shado do worky worky, insom no killy killy shado
+    	if(frozen.inList(event.getPlayer().getName())){
+    		event.setCancelled(true);
+    	}
+    	//Shado did worky worky
     }
 
 }
