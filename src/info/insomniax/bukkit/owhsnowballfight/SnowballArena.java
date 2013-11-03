@@ -8,6 +8,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 
 import mc.alk.arena.objects.arenas.Arena;
 import mc.alk.arena.objects.events.ArenaEventHandler;
@@ -34,7 +35,11 @@ public class SnowballArena extends Arena{
       if((event.getEntityType() != EntityType.PLAYER) || (event.getDamager().getType() != EntityType.PLAYER)) // If this snowball wasn't thrown by and/or didn't hit a player, stop here
     	return;
       
-      if(myPlugin.useListsForRock() || myPlugin.wasProbable(1,10))
+      if(myPlugin.useListsForRock())
+      {
+    	  
+      }
+      else if(myPlugin.wasProbable(1,10))
       {
     	  //At this point, we can safely type cast these entities since we already checked to make sure they're players.
     	  Entity player = event.getEntity();
@@ -60,8 +65,14 @@ public class SnowballArena extends Arena{
     			  frozen.add(playername, 10000);
     		  }
     	  }
-    	  //Shado's code here
       }
+    }
+    
+    @ArenaEventHandler
+    // Method name does not matter. What matters is the @ArenaEventHandler annotation and the passed in PlayerMoveEvent
+    public void onMove(PlayerMoveEvent event)
+    {
+    	//Shado do worky worky, insom no killy killy shado
     }
 
 }
