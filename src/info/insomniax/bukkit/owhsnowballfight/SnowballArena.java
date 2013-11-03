@@ -34,7 +34,7 @@ public class SnowballArena extends Arena{
       if((event.getEntityType() != EntityType.PLAYER) || (event.getDamager().getType() != EntityType.PLAYER)) // If this snowball wasn't thrown by and/or didn't hit a player, stop here
     	return;
       
-      if(myPlugin.wasProbable(1,10))
+      if(myPlugin.useListsForRock() || myPlugin.wasProbable(1,10))
       {
     	  //At this point, we can safely type cast these entities since we already checked to make sure they're players.
     	  Entity player = event.getEntity();
@@ -46,7 +46,7 @@ public class SnowballArena extends Arena{
           event.setDamage(rockDamage); // Increase snowball damage!
       }
       
-      if(myPlugin.useLists())
+      if(myPlugin.useListsForFreeze())
       {
     	  //Insom's code here
       } else

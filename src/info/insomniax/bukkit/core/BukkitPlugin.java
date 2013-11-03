@@ -13,7 +13,8 @@ public class BukkitPlugin extends JavaPlugin{
 	Random rand = new Random();
 	FileConfiguration config = null;
 	
-	boolean useLists = false;
+	boolean useListsFreeze = false;
+	boolean useListsRock = false;
 	
 	//Wrapper class for all things bukkit!
 	
@@ -28,7 +29,8 @@ public class BukkitPlugin extends JavaPlugin{
 	    config = this.getConfig();
 
 		// Return true for using timed lists, false for probability
-		useLists = config.getBoolean("useLists",false);
+		useListsFreeze = config.getBoolean("useListsForFreeze",false);
+		useListsRock = config.getBoolean("useListsForRock", false);
 	}
 	
 	public void onDisable()
@@ -46,9 +48,14 @@ public class BukkitPlugin extends JavaPlugin{
 		this.getLogger().info(message);
 	}
 	
-	public boolean useLists()
+	public boolean useListsForFreeze()
 	{
-		return useLists;
+		return useListsFreeze;
+	}
+	
+	public boolean useListsForRock()
+	{
+		return useListsRock;
 	}
 
 }
