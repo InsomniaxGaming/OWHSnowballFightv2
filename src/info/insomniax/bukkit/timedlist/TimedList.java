@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
 public class TimedList extends Timer{
 	
 	private List<String> list = new ArrayList<String>();
@@ -17,6 +18,9 @@ public class TimedList extends Timer{
 	
 	public boolean inList(String player)
 	{
+		if(list.contains(player)){
+			return true;
+		}
 		return false; // Fix this to return correctly :) We will use "inList" instead of "isFrozen"
 	}
 	

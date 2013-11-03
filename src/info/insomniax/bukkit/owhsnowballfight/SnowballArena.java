@@ -53,7 +53,12 @@ public class SnowballArena extends Arena{
       {
     	  if(myPlugin.wasProbable(1,32)){
     		  Entity player = event.getEntity();
+    		  String playername = ((Player) player).getName();
     		  
+    		  if(!frozen.inList(playername))
+    		  {
+    			  frozen.add(playername, 10000);
+    		  }
     	  }
     	  //Shado's code here
       }
