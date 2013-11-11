@@ -1,5 +1,8 @@
 package info.insomniax.bukkit.owhsnowballfight;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import info.insomniax.bukkit.core.BukkitPlugin;
 import info.insomniax.bukkit.timedlist.TimedList;
 
@@ -18,6 +21,7 @@ public class SnowballArena extends Arena{
 	
 	BukkitPlugin myPlugin;
 	TimedList frozen = new TimedList();
+	List<SnowballFighter> fighters = new ArrayList<SnowballFighter>();
 	
 	public SnowballArena(BukkitPlugin instance)
 	{
@@ -60,7 +64,7 @@ public class SnowballArena extends Arena{
     		  Entity player = event.getEntity();
     		  String playername = ((Player) player).getName();
     		  
-    		  if(!frozen.inList(playername))
+    		  if(!frozen.has(playername))
     		  {
     			  frozen.add(playername, 10000);
     		  }
@@ -72,7 +76,7 @@ public class SnowballArena extends Arena{
     // Method name does not matter. What matters is the @ArenaEventHandler annotation and the passed in PlayerMoveEvent
     public void onMove(PlayerMoveEvent event)
     {
-    	if(frozen.inList(event.getPlayer().getName())){
+    	if(frozen.has(event.getPlayer().getName())){
     		event.setCancelled(true);
     	}
     	//Shado did worky worky

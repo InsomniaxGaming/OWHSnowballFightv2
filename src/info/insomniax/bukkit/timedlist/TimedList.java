@@ -8,17 +8,25 @@ import java.util.TimerTask;
 
 public class TimedList extends Timer{
 	
-	private List<String> list = new ArrayList<String>();
+	private List<Object> list = new ArrayList<Object>();
 
-	public void add(String player, long time)
+	// This method will add a player to the List for time amount of milliseconds. Any number below 0 is a permanent add to the list
+	public void add(Object obj, long time)
 	{
-		list.add(player); // Add player to list
-		this.schedule(new ListTask(player),time); // Schedule a task to remove the player from the list after the length of variable "time"
+		list.add(obj); // Add player to list
+		
+		if(time >= 0)
+			this.schedule(new ListTask(obj),time); // Schedule a task to remove the player from the list after the length of variable "time"
 	}
 	
-	public boolean inList(String player)
+	public void remove(Object obj)
 	{
-		if(list.contains(player)){
+		list.remove(obj);
+	}
+	
+	public boolean has(Object obj)
+	{
+		if(list.contains(obj)){
 			return true;
 		}
 		return false; // Fix this to return correctly :) We will use "inList" instead of "isFrozen"
@@ -26,17 +34,17 @@ public class TimedList extends Timer{
 	
 	class ListTask extends TimerTask{
 		
-		String name;
+		Object listItem;
 		
-		public ListTask(String name)
+		public ListTask(Object obj)
 		{
-			this.name = name;
+			listItem = obj;
 		}
 
 		@Override
 		public void run()
 		{
-			list.remove(name);
+			remove(listItem);
 		}	
 	}
 }
